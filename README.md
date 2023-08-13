@@ -1,68 +1,70 @@
-<div align="center">
-	<h1>Listagem de tarefas</h1>
-	<br>
-	<p align="center">
-		<a href="https://www.linkedin.com/in/felipejsborges/">
-		  <img alt="made by" src="https://img.shields.io/badge/made%20by-Felipe%20Borges-orange">
-		</a>
-		<a href="https://github.com/felipejsborges/pokemon-challenge/commits/master">
-		  <img alt="last commit" src="https://img.shields.io/github/last-commit/felipejsborges/felipejsborges">
-		</a>
-	</p>
-</div>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:db813b,50:d76f32,100:e0945e&height=150&section=header" width="100%">
 
-<hr>
+<html>
+  <img align="left" src="https://github.com/Delgado-tech/dnc-landing-page-challenge/assets/60985347/01280482-629f-4956-93a1-f7bab2b52400" width="100px"/>
+  <h1>FORMAÇÃO EM TECNOLOGIA - DESAFIO 3 <br>
+  Desenvolvendo uma aplicação web para gerenciamento de tarefas <br><br></h1>
+</html>
 
-<h4>Descrição 📄</h4>
+### 🚀 Descrição do desafio:
+> O desafio foi proposto na [Escola DNC](https://www.escoladnc.com.br) no curso de [Formação em Tecnologia](https://www.escoladnc.com.br/formacao-em-tecnologia/)
+> o desafio consiste em replicar o modelo estabelecido pelo professor no figma,
+> e utilizar as habilidades adiquiridas em React e SAAS para a criação de uma aplicação
+> gerenciadora de tarefas.
 
-Aplicação desenvolvida para listar e visualizar tarefas, com o objetivo de colocar em práticas a biblioteca de desenvolvimento de interfaces React JS.
+# 
 
-<hr>
+### 📄 Contexto:
+> Organizar tarefas diárias é um desafio para muitos. Com aumento do ritmo de vida e
+> das responsabilidades, é difícil lembrar de todas as tarefas, gerando estresse e
+> ansiedade. As pessoas precisam de forma fácil e prática organizar tarefas, mas
+> aplicações já existentes podem ser complexas demais para aprender ou então muito
+> limitadas para atender suas necessidades pessoais. Portanto, a melhor solução é criar
+> uma aplicação personalizada.
 
-<h4>Tecnologias 🚀</h4>
+#
 
-- Javascript
-- React JS
-- Vite
-- React Router Dom
-- Sass
-- JSON Server
+### 🎯 Resolução:
+Foi recriado o modelo de interface disponibilizado pelo instrutor no Figma, visando tornar a replica o mais fiel possível, além de criar um banco de dados falso para testar o CRUD das tarefas. Foi utilizado as seguintes ferramentas e linguagens para a produção desse desafio:
 
-<hr>
+<html>
+  <br>
+  <table>
+    <tr>
+      <th></th>
+      <th>NOME</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+    <!--Linha 1-->
+    <tr>
+      <td> <img src="" width="20px"/></td>
+      <td><strong>React + ViteJS<strong/></td>
+      <td>utilizado para o estruturamento da página</td>
+    </tr>
+    <!--Linha 2-->
+    <tr>
+      <td> <img src="" width="20px"/></td>
+      <td><strong>SASS<strong/></td>
+      <td>utilizado para a estilização e animações da página</td>
+    </tr>
+    <!--Linha 3-->
+    <tr>
+      <td> <img src="" width="20px"/></td>
+      <td><strong>React Icons<strong/></td>
+      <td>Biblioteca utilizada para utilização rápida e fácil de ícones</td>
+    </tr>
+    <!--Linha 4-->
+    <tr>
+      <td> <img src="" width="20px"/></td>
+      <td><strong>Netlify<strong/></td>
+      <td>utilizado para colocar a página na web</td>
+    </tr>
+  </table>
+  <br>
+</html>
 
-<h4>Como rodar no seu computador🖥️</h4>
+> ### Deploy:
+> ### Figma: 
 
-- Instale o [Node.js](https://nodejs.org/en/download/) e o [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). Então:
 
-```
-# clone esse repositório
-$ git clone https://github.com/felipejsborges/<repo_name>.git
-
-# acesse a pasta do projeto
-$ cd <repo_name>
-
-# instale as dependências
-$ npm install
-
-# rode o server
-$ npm run server
-
-# abra outro terminal e rode o projeto
-$ npm run dev
-```
-- [Acesse a aplicação](http://localhost:5173)
-
-<hr>
-
-by Felipe Borges<br>
-<div>
-	<a href="https://www.linkedin.com/in/felipejsborges">
-		<img width="32px" src="https://github.com/felipejsborges/felipejsborges/blob/master/assets/linkedin.svg" alt="LinkedIn">
-	</a>
-	<a href="https://wa.me/+55012996477129">
-		<img width="32px" src="https://github.com/felipejsborges/felipejsborges/blob/master/assets/whatsapp.svg" alt="WhatsApp">
-	</a>
-	<a href="mailto:felipejsborges@outlook.com">
-		<img width="32px" src="https://github.com/felipejsborges/felipejsborges/blob/master/assets/mail.svg" alt="E-mail">
-	</a>
-</div>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:161b22,100:30363d&height=150&section=footer" width="100%">
