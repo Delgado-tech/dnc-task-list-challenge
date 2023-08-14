@@ -1,0 +1,17 @@
+@use '../../themes/variables.scss' as theme;
+
+.checkbox {
+    user-select: none;
+
+    & span {
+        color: theme.$white;
+    }
+
+    &--checked {
+        color: theme.$checkbox-checked-color !important;
+    }
+
+    & input {
+        display: none;
+    }
+}
