@@ -15,26 +15,29 @@ export interface IModal {
 
 export default function Modal({children, show, confirmButton, cancelButton}: IModal) {
     return (
-        <div style={{display: show ? 'block' : 'none'}}>
-            { children }
-            {  
-                confirmButton && (
-                    <span onClick={() => {
-                        confirmButton.handler();
-                    }}>
-                        {confirmButton.text ? confirmButton.text : "Sim"}
-                    </span>
-                )
-            }
-            { 
-                cancelButton && (
-                    <span onClick={() => {
-                        cancelButton.handler();
-                    }}>
-                        {cancelButton.text ? cancelButton.text : "Não"}
-                    </span>
-                )
-            }
+        <div className="modal" style={{display: show ? 'block' : 'none'}}>
+            <div className="modal__wrapper">
+
+                { children }
+                {  
+                    confirmButton && (
+                        <span onClick={() => {
+                            confirmButton.handler();
+                        }}>
+                            {confirmButton.text ? confirmButton.text : "Sim"}
+                        </span>
+                    )
+                }
+                { 
+                    cancelButton && (
+                        <span onClick={() => {
+                            cancelButton.handler();
+                        }}>
+                            {cancelButton.text ? cancelButton.text : "Não"}
+                        </span>
+                    )
+                }
+            </div>
         </div>
     );
 }
