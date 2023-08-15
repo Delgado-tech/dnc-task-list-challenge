@@ -1,0 +1,60 @@
+@use '../../themes/variables.scss' as theme;
+
+.tasklist {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8rem;
+
+    &__icon {
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(110%);
+            color: theme.$secondary-color;
+        }
+    }
+
+    & thead {
+        border-bottom: 2px solid theme.$light;
+    }
+
+    & table, th, td {
+        border-collapse: collapse;
+        color: theme.$white;
+    }
+
+    & table {
+        width: 60%;
+    }
+
+    & td {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    & th {
+        padding: 1.75rem 1rem;
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    & tr:nth-child(1) td {
+        padding-top: 1.75rem;
+    }
+
+    & td:nth-child(1), th:nth-child(1) {
+        text-align: left;
+    }
+
+    & td:nth-child(2), th:nth-child(2) {
+        text-align: center;
+    }
+
+    & td:nth-child(3), th:nth-child(3) {
+        font-size: 1.25rem;
+        display: flex;
+        justify-content: right;
+        gap: 0.5rem;
+    }
+}

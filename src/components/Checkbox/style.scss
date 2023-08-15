@@ -4,11 +4,11 @@
     user-select: none;
 
     & span {
-        color: theme.$white;
+        cursor: pointer;
     }
 
     &--checked {
-        color: theme.$checkbox-checked-color !important;
+        color: theme.$secondary-color !important;
     }
 
     & input {

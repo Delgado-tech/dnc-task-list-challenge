@@ -1,5 +1,7 @@
 import { TaskFakeDB } from '../../services/tasks-db.mock';
 import Checkbox from '../Checkbox/Checkbox';
+import { BiSolidTrashAlt, BiPlus } from 'react-icons/bi';
+import { MdEdit } from 'react-icons/md';
 import './style.scss';
 
 export interface ITaskList {
@@ -15,15 +17,15 @@ export default function TaskList({ db }: ITaskList) {
                 <td>{task.data.title ? task.data.title : `Tarefa ${task.id}`}</td>
                 <td><Checkbox id={`ch${task.id}`} checked={ task.data.completed !== undefined ? task.data.completed : false } /></td>
                 <td>
-                    <img src="" alt="deletar"/>
-                    <img src="" alt="editar"/>
+                    <MdEdit className="tasklist__icon"/>
+                    <BiSolidTrashAlt className="tasklist__icon" />
                 </td>
             </tr>
         );
     });
 
     return (
-        <section>
+        <section className="tasklist">
             <table>
                 <thead>
                     <tr>
@@ -38,7 +40,7 @@ export default function TaskList({ db }: ITaskList) {
                         <td>Nova tarefa...</td>
                         <td></td>
                         <td>
-                            <img src="" alt="adicionar"/>
+                            <BiPlus className="tasklist__icon" />
                         </td>
                     </tr>
                 </tbody>
