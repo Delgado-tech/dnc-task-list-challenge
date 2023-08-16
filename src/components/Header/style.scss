@@ -4,7 +4,7 @@
     background-color: theme.$primary-color;
     display: flex;
     gap: 1rem;
-    padding: 1.5rem 5rem 0 2rem;
+    padding: 1.5rem 2rem 0 2rem;
 
     & h2 {
         color: theme.$white;
@@ -16,5 +16,16 @@
         background-color: theme.$white;
         color: theme.$primary-color !important;
         border-radius: 1rem 1rem 0 0;
+    }
+
+    @media screen and (max-width: 500px) {
+        flex-direction: column;
+        align-items: center;
+
+        &__h2-task {
+            border-radius: 0;
+            width: 100%;
+            text-align: center;
+        }
     }
 }

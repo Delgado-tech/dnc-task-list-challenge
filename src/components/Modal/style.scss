@@ -32,7 +32,7 @@
     }
 
     &__content {
-        height: calc(1.5rem * 10);
+        height: 60%;
         padding: 1rem;
         overflow: auto;
         display: flex;
@@ -50,6 +50,10 @@
             font-size: 1.25rem;
             font-weight: 600;
             color:rgba($color: theme.$black, $alpha: 0.5);
+        }
+
+        &::-webkit-scrollbar {
+            background-color: transparent !important;
         }
     }
 
@@ -83,6 +87,10 @@
             resize: none;
             height: calc(1.5rem * 4);
             padding: 1.25rem;
+
+            &::-webkit-scrollbar {
+                background-color: transparent !important;
+            }
         }
 
         & label {
@@ -104,13 +112,18 @@
         }
     }
 
+    &__emptySpace {
+        height: 4.75rem;
+    }
+
     &__button-cta {
         display: grid;
+        position: absolute;
         grid-template-columns: 1fr 1fr;
         column-gap: 1rem;
         bottom: 4rem;
         left: 4rem;
-        width: 100%;
+        width: calc(100% - 8rem);
     }
 
     &__button {
@@ -135,6 +148,43 @@
             filter: brightness(110%);
             scale: 103%;
             box-shadow: 0 3px 15px rgba($color: #000000, $alpha: 0.2);
+        }
+    }
+
+    @media screen and (max-width: 1400px) {
+        &__wrapper {
+            width: 45%;
+            height: 45%;
+        }
+    }
+
+    @media screen and (max-width: 1150px) {
+        &__wrapper {
+            width: 65%;
+            height: 65%;
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        &__wrapper {
+            width: calc(100% - 4rem);
+            height: calc(100% - 4rem);
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        &__wrapper {
+            padding: 2rem;
+
+            width: calc(100% - 2rem);
+            height: calc(100% - 2rem);
+        }
+
+        &__button-cta {
+            left: 2rem;
+            bottom: 2rem;
+
+            width: calc(100% - 4rem);
         }
     }
 

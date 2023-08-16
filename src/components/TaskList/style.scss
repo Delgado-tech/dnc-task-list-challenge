@@ -22,8 +22,6 @@
             background-color: theme.$light;
             scale: 103%;
         }
-
-        border-radius: 4px 0 0 0; 
     }
 
     &__item {
@@ -46,7 +44,6 @@
 
     & table {
         width: 60%;
-        
     }
 
     & td {
@@ -78,5 +75,17 @@
         justify-content: right;
         align-items: center;
         gap: 0.5rem;
+    }
+
+    @media screen and (max-width: 1150px) { 
+        & table {
+            width: 80%;
+        }
+    }
+
+    @media screen and (max-width: 900px) { 
+        & table {
+            width: 100%;
+        }
     }
 }

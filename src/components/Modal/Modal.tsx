@@ -18,6 +18,7 @@ export default function Modal({children, show, confirmButton, cancelButton}: IMo
         <div className="modal" style={{display: show ? 'block' : 'none'}}>
             <div className="modal__wrapper">
                 { children }
+                <div className="modal__emptySpace"></div>
                 <div className="modal__button-cta">
                     { 
                         cancelButton && (

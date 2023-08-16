@@ -20,7 +20,23 @@ body {
     color: theme.$white;
 }
 
+::-webkit-scrollbar {
+    background: rgb(207, 208, 209);
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(107, 108, 109);
+    border-radius: 25px;    
+}
+
 .--font-display {
     font-family: 'Poppins', sans-serif !important;
     font-weight: 600;
 } 
+
+@media screen and (max-width: 400px) {
+    :root {
+        font-size: 12px;
+    }
+}
