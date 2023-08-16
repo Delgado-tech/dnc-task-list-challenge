@@ -3,61 +3,60 @@ import Checkbox from '../Checkbox/Checkbox';
 import { BiSolidTrashAlt, BiPlus } from 'react-icons/bi';
 import { MdEdit } from 'react-icons/md';
 import { useEffect, useState } from 'react';
-import Modal from "../../components/Modal/Modal";
 import './style.scss';
+import modalOperation from './modalOperations';
 
 export interface ITaskList {
     db: TaskFakeDB
 }
 
-//type TaskListOperation = "delete" | "update" | "insert" | "read";
-
 export default function TaskList({ db }: ITaskList) {
     const [modal, setModal] = useState<any>(null);
-    const [showModal, setShowModal] = useState(true);
+    const [showModal, setShowModal] = useState(false);
+
+    const modalOperationHandlers = {
+        db: db,
+        setModal: setModal,
+        setShowModal: setShowModal
+    };
 
     useEffect(() => {
-        callReadModal(1);
-        const bodyStyle = document.querySelector("body")!.style;
+        const body = document.querySelector("body") as HTMLBodyElement;
+
+        const handleClickOutsideModalBox = (e: MouseEvent) => {
+            const target = e.target as HTMLElement;
+            if (target.classList.contains("modal")) {
+                setShowModal(false);
+                setModal(null);
+            }
+        }
 
         if(showModal) {
-            bodyStyle.setProperty("overflow-y", "hidden");
+            window.addEventListener("click", handleClickOutsideModalBox);
+            body.style.setProperty("overflow-y", "hidden");
         } else {
-            bodyStyle.setProperty("overflow-y", "scroll");
+            body.style.setProperty("overflow-y", "scroll");
+        }
+
+        return () => {
+            window.removeEventListener("click", handleClickOutsideModalBox);
         }
 
     }, [showModal]);
 
-    function callReadModal(taskId: number) {
-        const task = db.getData(taskId);
-
-        setModal(
-            <Modal 
-                key={`modal${taskId}`} 
-                show={showModal}
-                cancelButton={{
-                    text: "Fechar",
-                    handler: () => {
-                        setModal(null);
-                        setShowModal(false);
-                    }
-                }}
-            >
-                <h2>{ task?.data.title }</h2>
-                <p>{ task?.data.description }</p>
-            </Modal>
-        );
-    }
-
     const tableData: any[] = [];
     db.getDatabase().map(task => {
         tableData.push(
-            <tr id={`taskId:${task.id}`} key={task.id}>
-                <td>{task.data.title ? task.data.title : `Tarefa ${task.id}`}</td>
-                <td><Checkbox id={`ch${task.id}`} checked={ task.data.completed !== undefined ? task.data.completed : false } /></td>
+            <tr id={`taskId:${task.id}`} key={task.id} className="tasklist__row">
+                <td onClick={() => modalOperation.callReadModal(task.id, modalOperationHandlers)} className="tasklist__item">{task.data.title ? task.data.title : `Tarefa ${task.id}`}</td>
                 <td>
-                    <MdEdit className="tasklist__icon"/>
-                    <BiSolidTrashAlt className="tasklist__icon" />
+                    <span onClick={() => modalOperation.updateTaskStatus(task.id, `ch${task.id}`, modalOperationHandlers)}>
+                        <Checkbox id={`ch${task.id}`} checked={ task.data.completed !== undefined ? task.data.completed : false } />
+                    </span>
+                </td>
+                <td>
+                    <MdEdit className="tasklist__icon" onClick={() => modalOperation.callUpdateModal(task.id, modalOperationHandlers)}/>
+                    <BiSolidTrashAlt className="tasklist__icon" onClick={() => modalOperation.callDeleteModal(task.id, modalOperationHandlers)}/>
                 </td>
             </tr>
         );
@@ -75,12 +74,14 @@ export default function TaskList({ db }: ITaskList) {
                     </tr>
                 </thead>
                 <tbody>
+                    <tr><td></td></tr>
                     { tableData }
-                    <tr>
-                        <td>Nova tarefa...</td>
-                        <td></td>
-                        <td>
-                            <BiPlus className="tasklist__icon" />
+                    <tr className="tasklist__row">
+                        <td colSpan={3} className="tasklist__item tasklist__item-add" onClick={() => modalOperation.callInsertModal(modalOperationHandlers)}>
+                            <p>
+                                Nova tarefa...
+                                <BiPlus className="tasklist__icon" />    
+                            </p>
                         </td>
                     </tr>
                 </tbody>

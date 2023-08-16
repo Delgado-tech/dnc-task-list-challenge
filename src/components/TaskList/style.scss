@@ -15,6 +15,26 @@
         }
     }
 
+    &__row {
+        transition: all 0.1s ease-out;
+
+        &:hover {
+            background-color: theme.$light;
+            scale: 103%;
+        }
+
+        border-radius: 4px 0 0 0; 
+    }
+
+    &__item {
+        cursor: pointer;
+    }
+
+    &__item-add p {
+        display: flex;
+        justify-content: space-between;
+    }
+
     & thead {
         border-bottom: 2px solid theme.$light;
     }
@@ -26,6 +46,7 @@
 
     & table {
         width: 60%;
+        
     }
 
     & td {
@@ -40,7 +61,7 @@
     }
 
     & tr:nth-child(1) td {
-        padding-top: 1.75rem;
+        padding-top: 0.75rem;
     }
 
     & td:nth-child(1), th:nth-child(1) {
@@ -55,6 +76,7 @@
         font-size: 1.25rem;
         display: flex;
         justify-content: right;
+        align-items: center;
         gap: 0.5rem;
     }
 }

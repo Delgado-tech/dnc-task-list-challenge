@@ -33,8 +33,8 @@ export class TaskFakeDB {
         this.database.map((data) => {
             if(data.id === task.id) {
                 for (const [key] of Object.entries(data.data)) {
-                    if ((task as any)[key] && (data.data as any)[key] !== (task as any)[key]) {
-                        (data.data as any)[key] = (task as any)[key];
+                    if ((task.data as any)[key] !== undefined && (data.data as any)[key] !== (task.data as any)[key]) {
+                        (data.data as any)[key] = (task.data as any)[key];
                     }
                 }
                 return true;
