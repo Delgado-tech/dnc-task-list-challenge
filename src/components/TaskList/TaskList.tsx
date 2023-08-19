@@ -55,7 +55,7 @@ export default function TaskList({ db }: ITaskList) {
             <tr id={`taskId:${task.id}`} key={task.id} className="tasklist__row">
                 <td 
                     onClick={() => modalOperation.callReadModal(task.id, modalOperationHandlers)} className="tasklist__item"
-                    style={!checked ? {textDecoration: "line-through", color: "gray"} : {}}
+                    style={checked ? {textDecoration: "line-through", color: "gray"} : {textDecoration: "none", color: "white"}}
                 >
                     {task.data.title ? task.data.title : `Tarefa ${task.id}`}
                 </td>
