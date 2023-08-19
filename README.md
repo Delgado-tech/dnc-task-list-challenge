@@ -19,10 +19,21 @@ Foi recriado o modelo de interface disponibilizado pelo instrutor no Figma, visa
 
 <br>
 
+Instalação do projeto via terminal do Visual Studio Code
+```
+git clone https://github.com/Delgado-tech/dnc-task-list-challenge.git
+cd dnc-task-list-challenge
+npm install
+npm run dev
+```
+
 <h2>Versão-1</h2>
 
-> - Funcionalidades de modal
-> - CRUD para as tarefas
+> - Modais:
+>   - Criação de tarefas
+>   - Visualização de tarefas
+>   - Deleção de tarefas
+>   - Alteração de tarefas
 > - Banco de dados falso utilizando classes e funções
 
 <div align="left">
