@@ -13,6 +13,7 @@ export interface ITaskList {
 export default function TaskList({ db }: ITaskList) {
     const [modal, setModal] = useState<any>(null);
     const [showModal, setShowModal] = useState(false);
+    const [checkboxToggle, setCheckboxToggle] = useState(false);
 
     const modalOperationHandlers = {
         db: db,
@@ -44,14 +45,26 @@ export default function TaskList({ db }: ITaskList) {
 
     }, [showModal]);
 
+    useEffect(() => {}, [checkboxToggle]);
+
     const tableData: any[] = [];
     db.getDatabase().map(task => {
+        const checked = task.data.completed !== undefined ? task.data.completed : false;
+
         tableData.push(
             <tr id={`taskId:${task.id}`} key={task.id} className="tasklist__row">
-                <td onClick={() => modalOperation.callReadModal(task.id, modalOperationHandlers)} className="tasklist__item">{task.data.title ? task.data.title : `Tarefa ${task.id}`}</td>
+                <td 
+                    onClick={() => modalOperation.callReadModal(task.id, modalOperationHandlers)} className="tasklist__item"
+                    style={checked ? {textDecoration: "line-through", color: "gray"} : {}}
+                >
+                    {task.data.title ? task.data.title : `Tarefa ${task.id}`}
+                </td>
                 <td>
-                    <span onClick={() => modalOperation.updateTaskStatus(task.id, `ch${task.id}`, modalOperationHandlers)}>
-                        <Checkbox id={`ch${task.id}`} checked={ task.data.completed !== undefined ? task.data.completed : false } />
+                    <span onClick={() => {
+                        modalOperation.updateTaskStatus(task.id, `ch${task.id}`, modalOperationHandlers);
+                        setCheckboxToggle(!checkboxToggle);
+                    }}>
+                        <Checkbox id={`ch${task.id}`} checked={ checked } />
                     </span>
                 </td>
                 <td>
