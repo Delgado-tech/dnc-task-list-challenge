@@ -55,7 +55,7 @@ export default function TaskList({ db }: ITaskList) {
             <tr id={`taskId:${task.id}`} key={task.id} className="tasklist__row">
                 <td 
                     onClick={() => modalOperation.callReadModal(task.id, modalOperationHandlers)} className="tasklist__item"
-                    style={checked ? {textDecoration: "line-through", color: "gray"} : {}}
+                    style={!checked ? {textDecoration: "line-through", color: "gray"} : {}}
                 >
                     {task.data.title ? task.data.title : `Tarefa ${task.id}`}
                 </td>
@@ -64,7 +64,7 @@ export default function TaskList({ db }: ITaskList) {
                         modalOperation.updateTaskStatus(task.id, `ch${task.id}`, modalOperationHandlers);
                         setCheckboxToggle(!checkboxToggle);
                     }}>
-                        <Checkbox id={`ch${task.id}`} checked={ checked } />
+                        <Checkbox id={`ch${task.id}`} checked={ !checked } />
                     </span>
                 </td>
                 <td>
