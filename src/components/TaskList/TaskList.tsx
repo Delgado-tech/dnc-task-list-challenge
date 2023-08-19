@@ -64,7 +64,7 @@ export default function TaskList({ db }: ITaskList) {
                         modalOperation.updateTaskStatus(task.id, `ch${task.id}`, modalOperationHandlers);
                         setCheckboxToggle(!checkboxToggle);
                     }}>
-                        <Checkbox id={`ch${task.id}`} checked={ checked } />
+                        <Checkbox id={`ch${task.id}`} checked={ task.data.completed !== undefined ? task.data.completed : false } />
                     </span>
                 </td>
                 <td>
